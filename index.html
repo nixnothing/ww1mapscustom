@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Simple markers</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+      function initMap() {
+        var heart = {lat:31.709, lng: -98.991};
+        var sanAntonio = {lat:29.424, lng: -98.494};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 7,
+          center: heart
+        });
+
+        var kmlLayer = new google.maps.KmlLayer({
+          url: 'http://www.nixnothing.com/mapkml.kml',
+          map: map,
+          preserveViewport: true
+        });
+/*
+        var marker = new google.maps.Marker({
+          position: heart,
+          map: map,
+          title: 'Hello World!'
+        });
+
+        var marker = new google.maps.Marker({
+          position: sanAntonio,
+          map: map,
+          title: 'San Antonio'
+        });*/
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9MYqb_-zOq7CDZrGI0hUjGINI4iUltxg&callback=initMap"
+    async defer></script>
+  </body>
+</html>
